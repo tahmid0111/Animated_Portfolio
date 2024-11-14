@@ -1,52 +1,34 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Mail, GitlabIcon as GitHub, Linkedin } from "lucide-react";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
+import { FaXTwitter, FaEnvelope } from "react-icons/fa6";
+
 
 interface Skill {
   name: string;
-  level: number;
-  color: string;
 }
 
-interface AboutMeProps {
-  name: string;
-  title: string;
-  description: string;
-  skills: Skill[];
-  email: string;
-  github: string;
-  linkedin: string;
-}
+export default function AboutMe() {
+  const skills: Skill[] = [
+    { name: "JavaScript" },
+    { name: "TypeScript" },
+    { name: "React.js"},
+    { name: "Next.js" },
+    { name: "Node.js" },
+    { name: "Express.js" },
+    { name: "MongoDB" },
+  ];
 
-const defaultProps: AboutMeProps = {
-  name: "Alex Johnson",
-  title: "Full Stack Developer",
-  description:
-    "Passionate about creating innovative web solutions. I thrive on learning cutting-edge technologies and tackling complex challenges in the ever-evolving world of web development.",
-  skills: [
-    { name: "React", level: 90, color: "bg-cyan-400" },
-    { name: "TypeScript", level: 85, color: "bg-yellow-400" },
-    { name: "Next.js", level: 80, color: "bg-fuchsia-400" },
-    { name: "Node.js", level: 75, color: "bg-lime-400" },
-    { name: "GraphQL", level: 70, color: "bg-orange-400" },
-  ],
-  email: "alex@example.com",
-  github: "https://github.com/alexjohnson",
-  linkedin: "https://linkedin.com/in/alexjohnson",
-};
+  const specializations = ["Performance Optimization", "Animation"];
 
-export default function VibrantAboutMe({
-  name = defaultProps.name,
-  title = defaultProps.title,
-  description = defaultProps.description,
-  skills = defaultProps.skills,
-  email = defaultProps.email,
-  github = defaultProps.github,
-  linkedin = defaultProps.linkedin,
-}: AboutMeProps) {
-  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
+  const tools = [
+    "Accessibility",
+    "Framer Motion",
+    "Jest",
+    "Vitest",
+    "React Testing Library",
+  ];
 
   return (
     <motion.section
@@ -57,127 +39,185 @@ export default function VibrantAboutMe({
     >
       <div className="container mx-auto">
         <motion.div
-          className="bg-white bg-opacity-80 backdrop-blur-lg rounded-3xl shadow-2xl p-8 max-w-4xl mx-auto"
+          className="bg-white bg-opacity-80 backdrop-blur-lg rounded-3xl shadow-2xl px-8 pt-10 pb-20 max-w-6xl mx-auto"
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ type: "spring", stiffness: 300, damping: 30 }}
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <motion.h1
-                className="text-4xl font-bold mb-2 text-violet-600"
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-              >
-                {name}
-              </motion.h1>
-              <motion.h2
-                className="text-2xl mb-4 text-pink-500"
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-              >
-                {title}
-              </motion.h2>
-              <motion.p
-                className="text-lg mb-6 text-gray-700"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.4 }}
-              >
-                {description}
-              </motion.p>
+            <div className="profile-area text-center">
               <motion.div
                 className="flex space-x-4"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5 }}
               >
+                <div className="avatar mx-auto">
+                  <div className="w-40 rounded-3xl">
+                    <img src="/profile-picture.jpg" />
+                  </div>
+                </div>
+              </motion.div>
+              <motion.h1
+                className="text-4xl font-bold mb-2 text-violet-600 mt-5 text-center"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+              >
+                Tahmid Emam
+              </motion.h1>
+              <motion.h2
+                className="text-2xl mb-4 text-pink-500 text-center"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+              >
+                Software Engineer ( full-stack )
+              </motion.h2>
+              <motion.p
+                className="text-lg mb-6 text-gray-700 text-balance"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.4 }}
+              >
+                I'm a self-taught full-stack developer and love to work on the
+                front-end design.
+              </motion.p>
+              <motion.div
+                className="flex space-x-4 ml-[30%]"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.5 }}
+              >
                 <a
-                  href={`mailto:${email}`}
-                  className="text-violet-600 hover:text-violet-800 transition-colors"
-                  aria-label="Email"
-                >
-                  <Mail size={24} />
-                </a>
-                <a
-                  href={github}
+                  href="https://github.com/tahmid0111"
                   target="_blank"
-                  rel="noopener noreferrer"
                   className="text-violet-600 hover:text-violet-800 transition-colors"
                   aria-label="GitHub"
                 >
-                  <GitHub size={24} />
+                  <FaGithub className="text-4xl" />
                 </a>
                 <a
-                  href={linkedin}
+                  href="https://x.com/tahmid_emam"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-violet-600 hover:text-violet-800 transition-colors"
+                  aria-label="Twitter"
+                >
+                  <FaXTwitter className="text-4xl" />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/tahmid-emam/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-violet-600 hover:text-violet-800 transition-colors"
                   aria-label="LinkedIn"
                 >
-                  <Linkedin size={24} />
+                  <FaLinkedin className="text-4xl" />
+                </a>
+                <a
+                  href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=0.1tahmidemam@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-violet-600 hover:text-violet-800 transition-colors"
+                  aria-label="Gmail"
+                >
+                  <FaEnvelope className="text-4xl" />
                 </a>
               </motion.div>
             </div>
-            <div>
-              <h3 className="text-2xl font-semibold mb-4 text-violet-600">
-                Skills
-              </h3>
-              {skills.map((skill, index) => (
-                <motion.div
-                  key={skill.name}
-                  className="mb-4 relative"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.6 + index * 0.1 }}
-                  onMouseEnter={() => setHoveredSkill(skill.name)}
-                  onMouseLeave={() => setHoveredSkill(null)}
-                >
-                  <div className="flex justify-between mb-1">
-                    <span className="text-sm font-medium text-gray-700">
-                      {skill.name}
-                    </span>
-                    <span className="text-sm font-medium text-gray-500">
-                      {skill.level}%
-                    </span>
-                  </div>
-                  <div className="w-full bg-gray-200 rounded-full h-2.5 overflow-hidden">
+            <div className="skills-area">
+              <motion.div
+                className="mb-6"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.6 }}
+              >
+                <h2 className="text-2xl mb-4 text-black">
+                  🎯Goal: Top 1% in JavaScript and React
+                </h2>
+              </motion.div>
+              <motion.div
+                className="mb-6"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.6 }}
+              >
+                <h3 className="text-2xl font-semibold mb-4 text-violet-600">
+                  Skills
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {skills.map((skill, index) => (
                     <motion.div
-                      className={`h-2.5 rounded-full ${skill.color}`}
-                      initial={{ width: 0 }}
-                      animate={{ width: `${skill.level}%` }}
-                      transition={{ duration: 0.8, delay: 0.8 + index * 0.1 }}
-                    />
-                  </div>
-                  {hoveredSkill === skill.name && (
-                    <motion.div
-                      className="absolute -top-8 left-0 bg-white text-violet-600 text-xs py-1 px-2 rounded shadow"
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 10 }}
+                      key={skill.name}
+                      className="bg-green-200 rounded-full px-3 py-1 text-base font-medium text-black border flex items-center space-x-1"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 400,
+                        damping: 10,
+                      }}
                     >
-                      {`${skill.name} proficiency: ${skill.level}%`}
+                      <span className="text-base">{skill.name}</span>
                     </motion.div>
-                  )}
-                </motion.div>
-              ))}
+                  ))}
+                </div>
+              </motion.div>
+
+              <motion.div
+                className="mb-6"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.7 }}
+              >
+                <h3 className="text-2xl font-semibold mb-4 text-violet-600">
+                  Specializations
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {specializations.map((spec, index) => (
+                    <motion.div
+                      key={spec}
+                      className="bg-pink-200 rounded-full px-3 py-1 text-base font-medium text-black"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 400,
+                        damping: 10,
+                      }}
+                    >
+                      {spec}
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.8 }}
+              >
+                <h3 className="text-2xl font-semibold mb-4 text-violet-600">
+                  Tools
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {tools.map((tool, index) => (
+                    <motion.div
+                      key={tool}
+                      className="bg-yellow-200 rounded-full px-3 py-1 text-base font-medium text-black"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 400,
+                        damping: 10,
+                      }}
+                    >
+                      {tool}
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
             </div>
           </div>
-          <motion.div
-            className="mt-8 text-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1 }}
-          >
-            <a
-              href="#contact"
-              className="inline-flex items-center px-4 py-2 bg-violet-600 text-white rounded-full hover:bg-violet-700 transition-colors"
-            >
-              Get in touch <ArrowRight className="ml-2" size={16} />
-            </a>
-          </motion.div>
         </motion.div>
       </div>
     </motion.section>
