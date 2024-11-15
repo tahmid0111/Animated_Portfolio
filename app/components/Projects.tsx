@@ -132,7 +132,7 @@ export default function Projects() {
           My Colorful Projects
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <motion.div
               key={project.id}
               className={`rounded-lg overflow-hidden shadow-lg ${backgroundColors[project.color]} flex flex-col`}

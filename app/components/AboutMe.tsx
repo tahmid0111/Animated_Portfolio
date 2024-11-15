@@ -1,35 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FaLinkedin, FaGithub,FaRegEnvelope } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaRegEnvelope } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-
-
-interface Skill {
-  name: string;
-}
+import Skills from "./Skills";
 
 export default function AboutMe() {
-  const skills: Skill[] = [
-    { name: "JavaScript" },
-    { name: "TypeScript" },
-    { name: "React.js"},
-    { name: "Next.js" },
-    { name: "Node.js" },
-    { name: "Express.js" },
-    { name: "MongoDB" },
-  ];
-
-  const specializations = ["Performance Optimization", "Animation"];
-
-  const tools = [
-    "Accessibility",
-    "Framer Motion",
-    "Jest",
-    "Vitest",
-    "React Testing Library",
-  ];
-
   return (
     <motion.section
       initial={{ opacity: 0 }}
@@ -54,7 +30,7 @@ export default function AboutMe() {
               >
                 <div className="avatar mx-auto">
                   <div className="w-40 rounded-3xl">
-                    <img src="/profile-picture.jpg" />
+                    <img src="/profile-picture.jpg" alt="picture of me" />
                   </div>
                 </div>
               </motion.div>
@@ -80,8 +56,7 @@ export default function AboutMe() {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.4 }}
               >
-                I'm a self-taught full-stack developer and love to work on the
-                front-end design.
+                I&apos;m a self-taught full-stack developer and love to work on the front-end design.
               </motion.p>
               <motion.div
                 className="flex space-x-4 sm:ml-[33%] md:ml-[20%] lg:ml-[30%]"
@@ -146,101 +121,11 @@ export default function AboutMe() {
                     damping: 10,
                   }}
                 >
-                  <FaRegEnvelope  className="text-4xl" />
+                  <FaRegEnvelope className="text-4xl" />
                 </motion.a>
               </motion.div>
             </div>
-            <div className="skills-area">
-              <motion.div
-                className="mb-6"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.6 }}
-              >
-                <h2 className="text-2xl mb-4 text-black">
-                  🎯Goal: Top 1% in JavaScript and React
-                </h2>
-              </motion.div>
-              <motion.div
-                className="mb-6"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.6 }}
-              >
-                <h3 className="text-2xl font-semibold mb-4 text-violet-600">
-                  Skills
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {skills.map((skill, index) => (
-                    <motion.div
-                      key={skill.name}
-                      className="bg-green-200 rounded-full px-3 py-1 text-base font-medium text-black border flex items-center space-x-1"
-                      whileHover={{ scale: 1.05 }}
-                      transition={{
-                        type: "spring",
-                        stiffness: 400,
-                        damping: 10,
-                      }}
-                    >
-                      <span className="text-base">{skill.name}</span>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-
-              <motion.div
-                className="mb-6"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.7 }}
-              >
-                <h3 className="text-2xl font-semibold mb-4 text-violet-600">
-                  Specializations
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {specializations.map((spec, index) => (
-                    <motion.div
-                      key={spec}
-                      className="bg-pink-200 rounded-full px-3 py-1 text-base font-medium text-black"
-                      whileHover={{ scale: 1.05 }}
-                      transition={{
-                        type: "spring",
-                        stiffness: 400,
-                        damping: 10,
-                      }}
-                    >
-                      {spec}
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.8 }}
-              >
-                <h3 className="text-2xl font-semibold mb-4 text-violet-600">
-                  Tools
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {tools.map((tool, index) => (
-                    <motion.div
-                      key={tool}
-                      className="bg-yellow-200 rounded-full px-3 py-1 text-base font-medium text-black"
-                      whileHover={{ scale: 1.05 }}
-                      transition={{
-                        type: "spring",
-                        stiffness: 400,
-                        damping: 10,
-                      }}
-                    >
-                      {tool}
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-            </div>
+            <Skills />
           </div>
         </motion.div>
       </div>
