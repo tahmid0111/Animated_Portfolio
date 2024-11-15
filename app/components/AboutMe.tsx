@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FaLinkedin, FaGithub } from "react-icons/fa";
-import { FaXTwitter, FaEnvelope } from "react-icons/fa6";
+import { FaLinkedin, FaGithub,FaRegEnvelope } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 
 interface Skill {
@@ -67,7 +67,7 @@ export default function AboutMe() {
                 Tahmid Emam
               </motion.h1>
               <motion.h2
-                className="text-2xl mb-4 text-pink-500 text-center"
+                className="text-2xl mb-4 text-pink-500 text-center text-balance"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
@@ -84,46 +84,70 @@ export default function AboutMe() {
                 front-end design.
               </motion.p>
               <motion.div
-                className="flex space-x-4 ml-[30%]"
+                className="flex space-x-4 sm:ml-[33%] md:ml-[20%] lg:ml-[30%]"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5 }}
               >
-                <a
+                <motion.a
                   href="https://github.com/tahmid0111"
                   target="_blank"
                   className="text-violet-600 hover:text-violet-800 transition-colors"
                   aria-label="GitHub"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 400,
+                    damping: 10,
+                  }}
                 >
                   <FaGithub className="text-4xl" />
-                </a>
-                <a
+                </motion.a>
+                <motion.a
                   href="https://x.com/tahmid_emam"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-violet-600 hover:text-violet-800 transition-colors"
                   aria-label="Twitter"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 400,
+                    damping: 10,
+                  }}
                 >
                   <FaXTwitter className="text-4xl" />
-                </a>
-                <a
+                </motion.a>
+                <motion.a
                   href="https://www.linkedin.com/in/tahmid-emam/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-violet-600 hover:text-violet-800 transition-colors"
                   aria-label="LinkedIn"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 400,
+                    damping: 10,
+                  }}
                 >
                   <FaLinkedin className="text-4xl" />
-                </a>
-                <a
+                </motion.a>
+                <motion.a
                   href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=0.1tahmidemam@gmail.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-violet-600 hover:text-violet-800 transition-colors"
                   aria-label="Gmail"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 400,
+                    damping: 10,
+                  }}
                 >
-                  <FaEnvelope className="text-4xl" />
-                </a>
+                  <FaRegEnvelope  className="text-4xl" />
+                </motion.a>
               </motion.div>
             </div>
             <div className="skills-area">

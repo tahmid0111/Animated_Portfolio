@@ -2,7 +2,8 @@
 
 import { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { FaPlay, FaGlobe, FaCode, FaServer, FaTimes } from 'react-icons/fa'
+import { FaPlay, FaGlobe, FaCode, FaServer,FaBook } from 'react-icons/fa'
+
 import Image from 'next/image'
 
 interface Project {
@@ -13,6 +14,7 @@ interface Project {
   technologies: string
   videoPreview?: string
   liveUrl?: string
+  documentation?: string
   frontendUrl?: string
   backendUrl?: string
   color: 'blue' | 'green' | 'yellow' | 'red' | 'purple' | 'pink'
@@ -22,46 +24,46 @@ const projects: Project[] = [
   {
     id: '1',
     title: 'Weather App',
-    description: 'A full-stack e-commerce solution with real-time inventory management.',
-    image: '/placeholder.svg?height=300&width=400',
+    description: '',
+    image: '/weather-app-ss.jpeg',
     technologies: 'Next.js, TypeScript',
-    videoPreview: 'https://example.com/ecommerce-preview.mp4',
-    liveUrl: 'https://ecommerce.example.com',
-    frontendUrl: 'https://github.com/yourusername/task-manager-frontend',
+    videoPreview: 'a',
+    liveUrl: 'https://weather-app-beryl-two-86.vercel.app',
+    frontendUrl: 'https://github.com/tahmid0111/Weather_App',
     color: 'blue',
   },
   {
     id: '2',
     title: 'Gaming House',
-    description: 'A responsive weather application with location-based forecasts.',
-    image: '/placeholder.svg?height=300&width=400',
+    description: '',
+    image: '/gaming-house-ss.png',
     technologies: 'Next.js, TypeScript, Framer-motion',
-    videoPreview: 'https://example.com/ecommerce-preview.mp4',
+    videoPreview: 'a',
     liveUrl: 'https://weather.example.com',
-    frontendUrl: 'https://github.com/yourusername/weather-app',
+    frontendUrl: 'https://github.com/tahmid0111/Gaming_House',
     color: 'green',
   },
   {
     id: '3',
     title: 'Mediuum',
-    description: 'A collaborative task management tool with real-time updates.',
-    image: '/placeholder.svg?height=300&width=400',
+    description: '',
+    image: '/mediuum-ss.jpeg',
     technologies: 'React.js, Node.js, Express.js, MongoDB',
-    videoPreview: 'https://example.com/task-manager-preview.mp4',
-    liveUrl: 'https://tasks.example.com',
-    frontendUrl: 'https://github.com/yourusername/task-manager-frontend',
-    backendUrl: 'https://github.com/yourusername/task-manager-backend',
+    videoPreview: 'a',
+    documentation: "https://drive.google.com/drive/folders/1iwyKfeqA-Au5kPURfoAAIZugOCabKBxx?usp=sharing",
+    frontendUrl: 'https://github.com/tahmid0111/Mediuum_Front_end',
+    backendUrl: 'https://github.com/tahmid0111/Mediuum_Back_end',
     color: 'yellow',
   },
   {
     id: '4',
     title: 'Image Gallery',
-    description: 'A showcase of my projects and skills, built with Next.js and TypeScript.',
-    image: '/placeholder.svg?height=300&width=400',
+    description: '',
+    image: '/image-gallery-ss.jpeg',
     technologies: 'React.js, Lazy-loading',
-    videoPreview: 'https://example.com/task-manager-preview.mp4',
-    liveUrl: 'https://portfolio.example.com',
-    frontendUrl: 'https://github.com/yourusername/portfolio',
+    videoPreview: 'a',
+    liveUrl: 'https://image-gallery-omega-steel.vercel.app',
+    frontendUrl: 'https://github.com/tahmid0111/Image-Gallery',
     color: 'red',
   },
 //   {
@@ -91,7 +93,7 @@ const projects: Project[] = [
 const colorClasses = {
   blue: 'bg-blue-500',
   green: 'bg-green-500',
-  yellow: 'bg-yellow-500',
+  yellow: 'bg-yellow-600',
   red: 'bg-red-500',
   purple: 'bg-purple-500',
   pink: 'bg-pink-500',
@@ -129,14 +131,14 @@ export default function Projects() {
         <h2 className="text-5xl font-bold text-center mb-12 text-gray-800 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">
           My Colorful Projects
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
               className={`rounded-lg overflow-hidden shadow-lg ${backgroundColors[project.color]} flex flex-col`}
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.2, delay: 0.1 }}
               whileHover={{ scale: 1.03, boxShadow: '0 10px 20px rgba(0,0,0,0.2)' }}
               onHoverStart={() => setHoveredProject(project.id)}
               onHoverEnd={() => setHoveredProject(null)}
@@ -153,7 +155,7 @@ export default function Projects() {
                   alt={project.title}
                   width={400}
                   height={300}
-                  className="w-full h-48 object-cover transition-transform duration-300 transform group-hover:scale-110"
+                  className="w-full h-48 object-cover"
                 />
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-b from-transparent to-black/70 flex items-end justify-center p-4"
@@ -178,7 +180,7 @@ export default function Projects() {
                 <div className="flex flex-wrap justify-center gap-2">
                   {project.videoPreview && (
                     <motion.button
-                      className={`px-4 py-2 rounded-full ${colorClasses[project.color]} text-white transition duration-300 flex items-center space-x-2`}
+                      className={`px-4 py-2 rounded-full ${colorClasses[project.color]} text-white flex items-center space-x-2`}
                       aria-label={`Watch video preview for ${project.title}`}
                       variants={buttonVariants}
                       initial="initial"
@@ -194,7 +196,7 @@ export default function Projects() {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`px-4 py-2 rounded-full ${colorClasses[project.color]} text-white transition duration-300 flex items-center space-x-2`}
+                      className={`px-4 py-2 rounded-full ${colorClasses[project.color]} text-white flex items-center space-x-2`}
                       aria-label={`Visit live project: ${project.title}`}
                       variants={buttonVariants}
                       initial="initial"
@@ -205,12 +207,28 @@ export default function Projects() {
                       <span>Live Site</span>
                     </motion.a>
                   )}
+                  {project.documentation && (
+                    <motion.a
+                      href={project.documentation}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`px-4 py-2 rounded-full ${colorClasses[project.color]} text-white flex items-center space-x-2`}
+                      aria-label={`Explore the documentation: ${project.title}`}
+                      variants={buttonVariants}
+                      initial="initial"
+                      whileHover="hover"
+                      whileTap="tap"
+                    >
+                      <FaBook  />
+                      <span>Documentation</span>
+                    </motion.a>
+                  )}
                   {project.frontendUrl && (
                     <motion.a
                       href={project.frontendUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`px-4 py-2 rounded-full ${colorClasses[project.color]} text-white transition duration-300 flex items-center space-x-2`}
+                      className={`px-4 py-2 rounded-full ${colorClasses[project.color]} text-white flex items-center space-x-2`}
                       aria-label={`View frontend code for ${project.title}`}
                       variants={buttonVariants}
                       initial="initial"
