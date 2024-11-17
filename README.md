@@ -1,4 +1,4 @@
-# <div align="center"> Weather AI 😮‍💨</div>
+# <div align="center"> Animated Portfolio 😮‍💨</div>
 
 <div align="center">
   
