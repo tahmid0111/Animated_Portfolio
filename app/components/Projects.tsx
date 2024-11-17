@@ -39,7 +39,7 @@ const projects: Project[] = [
     image: '/gaming-house-ss.png',
     technologies: 'Next.js, TypeScript, Framer-motion',
     videoPreview: 'a',
-    liveUrl: 'https://weather.example.com',
+    liveUrl: 'https://gaming-house-lac.vercel.app/',
     frontendUrl: 'https://github.com/tahmid0111/Gaming_House',
     color: 'green',
   },
@@ -188,7 +188,7 @@ export default function Projects() {
                       whileTap="tap"
                     >
                       <FaPlay />
-                      <span>Watch Demo</span>
+                      <span>Video Preview</span>
                     </motion.button>
                   )}
                   {project.liveUrl && (
