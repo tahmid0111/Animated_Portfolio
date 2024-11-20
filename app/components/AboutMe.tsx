@@ -56,7 +56,8 @@ export default function AboutMe() {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.4 }}
               >
-                I&apos;m a self-taught full-stack developer and love to work on the front-end design.
+                I&apos;m a self-taught full-stack developer and love to work on
+                the front-end design.
               </motion.p>
               <motion.div
                 className="flex space-x-4 sm:ml-[33%] md:ml-[20%] lg:ml-[30%]"
@@ -123,6 +124,16 @@ export default function AboutMe() {
                 >
                   <FaRegEnvelope className="text-4xl" />
                 </motion.a>
+              </motion.div>
+              <motion.div
+              className="mt-5"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.5 }}
+              >
+                <a href="https://www.loom.com/share/feef1533aeb94a9b9d81e4c681ccaed2?sid=84ea80fb-53ec-4c89-9bb4-2986c57a38aa" 
+                target="_black"
+                className="btn btn-wide btn-warning text-lg">Video Introduction</a>
               </motion.div>
             </div>
             <Skills />
