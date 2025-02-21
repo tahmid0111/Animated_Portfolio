@@ -43,7 +43,7 @@ export default function AboutMe() {
                 Tahmid Emam Nahid
               </motion.h1>
               <motion.h1
-                className="text-4xl font-bold mb-2 text-violet-600 mt-5 text-center"
+                className="text-2xl font-bold mb-2 text-black mt-5 text-center"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
@@ -51,7 +51,7 @@ export default function AboutMe() {
                 0.07tahmid@gmail.com
               </motion.h1>
               <motion.h1
-                className="text-4xl font-bold mb-2 text-violet-600 mt-5 text-center"
+                className="text-2xl font-bold mb-2 text-black mt-5 text-center"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
