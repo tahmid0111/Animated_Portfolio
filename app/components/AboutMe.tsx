@@ -10,7 +10,7 @@ export default function AboutMe() {
     <motion.section
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 1 }}
       className="min-h-screen bg-gradient-to-br from-violet-200 via-pink-200 to-yellow-200 flex items-center justify-center p-4"
     >
       <div className="container mx-auto">
@@ -40,7 +40,23 @@ export default function AboutMe() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
               >
-                Tahmid Emam
+                Tahmid Emam Nahid
+              </motion.h1>
+              <motion.h1
+                className="text-4xl font-bold mb-2 text-violet-600 mt-5 text-center"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+              >
+                0.07tahmid@gmail.com
+              </motion.h1>
+              <motion.h1
+                className="text-4xl font-bold mb-2 text-violet-600 mt-5 text-center"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+              >
+                01918521434
               </motion.h1>
               <motion.h2
                 className="text-2xl mb-4 text-pink-500 text-center text-balance"
@@ -110,7 +126,7 @@ export default function AboutMe() {
                   <FaLinkedin className="text-4xl" />
                 </motion.a>
                 <motion.a
-                  href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=0.1tahmidemam@gmail.com"
+                  href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=0.07tahmid@gmail.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-violet-600 hover:text-violet-800 transition-colors"
